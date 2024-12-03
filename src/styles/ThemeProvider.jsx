@@ -1,14 +1,14 @@
 import { createTheme, ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import React from "react";
-import Colors from "styles/colors"
+import Colors from "./colors";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: Colors.sky-blue, // Sky Blue
+      main: Colors.skyBlue, // Use the correct key from Colors
     },
     secondary: {
-      main: Colors.white, // White
+      main: Colors.white, // Use the correct key from Colors
     },
   },
   typography: {

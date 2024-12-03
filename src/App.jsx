@@ -1,7 +1,7 @@
 import React from "react";
-import AppRoutes from "./routes/AppRoutes";
-import { AuthProvider } from "./context/AuthContext";
-import { CartProvider } from "./context/CartContext";
+import AppRoutes from "./Routes/AppRoutes";
+import { AuthProvider } from "./Context/AuthContext";
+import { CartProvider } from "./Context/CartContext";
 import ThemeProvider from "./styles/ThemeProvider";
 
 function App() {
