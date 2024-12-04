@@ -178,7 +178,7 @@ const Footer = () => {
             <Box sx={styles.footerBottom}>
                 <Typography>
                     Powered by
-                    <img src="src/assets/furniture-logo.png" alt="Furniture Logo" />
+                    <img src="/furniture-logo.png" alt="Furniture Logo" />
                     | Furniture Co. © 2024 All Rights Reserved
                 </Typography>
             </Box>

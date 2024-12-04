@@ -1,6 +1,5 @@
-Here's a sample `README.md` file for your `furniture-e-commerce-web` project based on the `package.json` you provided:
+![furniture-logo](https://github.com/user-attachments/assets/2be19fd7-8e18-4152-9d95-db7b4f8596d7)
 
-```markdown
 # Furniture E-Commerce Web
 
 A modern, responsive e-commerce web application for furniture shopping, built with React, Material UI, and Redux. This project is designed for a seamless user experience and efficient management of product data, user authentication, and shopping cart.
@@ -45,7 +44,7 @@ Follow these steps to get the project up and running locally.
 Clone this repository to your local machine using Git.
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/ChanvithaPraveen/furniture-e-commerce-web.git>
 cd furniture-e-commerce-web
 ```
 

@@ -93,7 +93,7 @@ const HeroSection = ({ slides }) => {
       ))}
       <Box sx={styles.overlay}>
         <Box sx={styles.logoContainer}>
-          <img src="src/assets/hero-logo.png" alt="Company Logo" />
+          <img src="hero-logo.png" alt="Company Logo" />
         </Box>
         <Typography variant="h3" sx={styles.heading}>
           Discover Comfort and Style
