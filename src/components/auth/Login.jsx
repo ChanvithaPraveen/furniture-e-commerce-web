@@ -1,12 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Avatar, Box, Button, Checkbox, Divider, FormControlLabel, Grid, Link, TextField, Typography } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -17,7 +22,19 @@ const Login = () => {
       password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      const { email, password } = values;
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+
+      const userExists = users.some(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (userExists) {
+        toast.success("Login successful!", { position: "top-center", autoClose: 2000 });
+        setTimeout(() => navigate("/home"), 2000);
+      } else {
+        toast.error("Invalid email or password!", { position: "top-center", autoClose: 3000 });
+      }
     },
   });
 
@@ -50,11 +67,11 @@ const Login = () => {
           alignItems: "flex-start",
           padding: "3rem",
           color: "#fff",
-          zIndex: 2, // Ensure it's above the background
+          zIndex: 2,
         }}
       >
         <Box>
-          <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>Sitemark</Typography>
+          <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>Furniture Store</Typography>
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>Adaptable performance</Typography>
           <Typography variant="body1" sx={{ mb: 3 }}>Our product effortlessly adjusts to your needs.</Typography>
         </Box>
@@ -68,8 +85,7 @@ const Login = () => {
           justifyContent: "center",
           alignItems: "center",
           padding: "3rem",
-          // backgroundColor: "#1e293f",
-          zIndex: 2, // Ensure it's above the background
+          zIndex: 2,
         }}
       >
         <Box
@@ -86,7 +102,7 @@ const Login = () => {
           <Box sx={{ textAlign: "center", marginBottom: "1.5rem" }}>
             <Avatar
               sx={{
-                bgcolor: "#2563eb",
+                bgcolor: "#352b66",
                 width: 56,
                 height: 56,
                 margin: "0 auto",
@@ -136,7 +152,9 @@ const Login = () => {
             />
             <Grid container justifyContent="space-between" alignItems="center">
               <FormControlLabel control={<Checkbox value="remember" />} label={<Typography sx={{ color: "#ccc" }}>Remember me</Typography>} />
-              <Link href="#" sx={{ color: "#ccc", fontSize: "0.875rem" }}>Forgot your password?</Link>
+              <Link onClick={() => navigate("/register")} sx={{ color: "#ccc", fontSize: "0.875rem", cursor: "pointer" }}>
+                Register here
+              </Link>
             </Grid>
             <Button
               fullWidth
@@ -144,11 +162,11 @@ const Login = () => {
               type="submit"
               sx={{
                 mt: 2,
-                backgroundColor: "#2563eb",
+                backgroundColor: "#352b66",
                 color: "#fff",
                 padding: "0.7rem",
                 fontWeight: "bold",
-                "&:hover": { backgroundColor: "#1d4ed8" },
+                "&:hover": { backgroundColor: "#392a85" },
               }}
             >
               Sign in

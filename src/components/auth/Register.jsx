@@ -9,14 +9,20 @@ import {
   Grid,
   TextField,
   Typography,
+  Link,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -33,7 +39,21 @@ const Register = () => {
         .required("Confirm password is required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      // Save user data to local storage
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      users.push(values);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      // Show success toast
+      toast.success("Registration successful! Redirecting to Login...", {
+        position: "top-center",
+        autoClose: 2000,
+      });
+
+      // Redirect after 2 seconds
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     },
   });
 
@@ -48,6 +68,8 @@ const Register = () => {
         overflow: "hidden",
       }}
     >
+      <ToastContainer />
+
       {/* Full-Screen Background Image */}
       <Box
         component="img"
@@ -75,16 +97,19 @@ const Register = () => {
           alignItems: "flex-start",
           padding: "3rem",
           color: "#fff",
-          zIndex: 2, // Ensure it's above the background
+          zIndex: 2,
         }}
       >
-        <Box>
-          <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>Sitemark</Typography>
-          <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>Adaptable performance</Typography>
-          <Typography variant="body1" sx={{ mb: 3 }}>Our product effortlessly adjusts to your needs.</Typography>
-        </Box>
+        <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>
+          Sitemark
+        </Typography>
+        <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+          Adaptable performance
+        </Typography>
+        <Typography variant="body1" sx={{ mb: 3 }}>
+          Our product effortlessly adjusts to your needs.
+        </Typography>
       </Box>
-
 
       {/* Right Section (Register Form) */}
       <Box
@@ -111,7 +136,7 @@ const Register = () => {
           <Box sx={{ textAlign: "center", marginBottom: "1.5rem" }}>
             <Avatar
               sx={{
-                bgcolor: "#2563eb",
+                bgcolor: "#352b66",
                 width: 56,
                 height: 56,
                 margin: "0 auto",
@@ -214,42 +239,23 @@ const Register = () => {
               type="submit"
               sx={{
                 mt: 2,
-                backgroundColor: "#2563eb",
+                backgroundColor: "#352b66",
                 color: "#fff",
                 padding: "0.7rem",
                 fontWeight: "bold",
-                "&:hover": { backgroundColor: "#1d4ed8" },
+                "&:hover": { backgroundColor: "#392a85" },
               }}
             >
               Register
             </Button>
 
             <Divider sx={{ my: 2, backgroundColor: "#ffffff30" }}>or</Divider>
-            <Button
-              fullWidth
-              variant="outlined"
-              startIcon={<GoogleIcon />}
-              sx={{
-                color: "#fff",
-                borderColor: "#ffffff50",
-                mb: 2,
-                "&:hover": { borderColor: "#fff" },
-              }}
-            >
-              Register with Google
-            </Button>
-            <Button
-              fullWidth
-              variant="outlined"
-              startIcon={<FacebookIcon />}
-              sx={{
-                color: "#fff",
-                borderColor: "#ffffff50",
-                "&:hover": { borderColor: "#fff" },
-              }}
-            >
-              Register with Facebook
-            </Button>
+            <Typography align="center" sx={{ color: "#ccc", mt: 2 }}>
+              Already have an account?{" "}
+              <Link href="/login" sx={{ color: "#fff", textDecoration: "underline" }}>
+                Login
+              </Link>
+            </Typography>
           </Box>
         </Box>
       </Box>

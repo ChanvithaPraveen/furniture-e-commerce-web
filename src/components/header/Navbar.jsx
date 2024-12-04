@@ -21,7 +21,7 @@ const Navbar = () => {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Furniture Store
         </Typography>
-        {["Home", "Products", "AboutUs", "ContactUs"].map((text) => (
+        {["Home", "Products", "AboutUs", "ContactUs", "Login", "Register"].map((text) => (
           <Button
             key={text}
             sx={{ color: "#0f172a", textTransform: "capitalize" }}
