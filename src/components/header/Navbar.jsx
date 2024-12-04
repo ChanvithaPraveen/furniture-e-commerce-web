@@ -21,7 +21,7 @@ const Navbar = () => {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Furniture Store
         </Typography>
-        {["Home", "Products", "About", "Contact"].map((text) => (
+        {["Home", "Products", "AboutUs", "ContactUs"].map((text) => (
           <Button
             key={text}
             sx={{ color: "#0f172a", textTransform: "capitalize" }}
@@ -31,9 +31,12 @@ const Navbar = () => {
             {text}
           </Button>
         ))}
-        <IconButton color="inherit" aria-label="cart">
-          <ShoppingCartIcon />
-        </IconButton>
+        {/* Link to Cart Page */}
+        <Link to="/cart" style={{ textDecoration: "none" }}>
+          <IconButton color="inherit" aria-label="cart">
+            <ShoppingCartIcon />
+          </IconButton>
+        </Link>
       </Toolbar>
     </AppBar>
   );
