@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../header/NavBar";
+import Navbar from "../header/Navbar";
 import HeroSection from "./HeroSection";
 import IconicFeatures from "./IconicFeatures";
 import FeaturedProducts from "../products/FeaturedProducts";

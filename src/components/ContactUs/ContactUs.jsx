@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import { motion } from "framer-motion";
-import Navbar from "../header/NavBar";
+import Navbar from "../header/Navbar";
 import Footer from "../Footer/Footer";
 
 const StyledButton = styled(Button)(({ theme }) => ({

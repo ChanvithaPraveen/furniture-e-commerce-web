@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography, Button, Grid, Paper, Container, IconButton } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
-import Navbar from "../header/NavBar"; // Adjust the import path if needed
+import Navbar from "../header/Navbar"; // Adjust the import path if needed
 import Footer from "../Footer/Footer"; // Adjust the import path if needed
 
 const CartPage = () => {

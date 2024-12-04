@@ -5,10 +5,10 @@ import Colors from "./colors";
 const theme = createTheme({
   palette: {
     primary: {
-      main: Colors.skyBlue, // Use the correct key from Colors
+      main: Colors.skyBlue, 
     },
     secondary: {
-      main: Colors.white, // Use the correct key from Colors
+      main: Colors.white, 
     },
   },
   typography: {

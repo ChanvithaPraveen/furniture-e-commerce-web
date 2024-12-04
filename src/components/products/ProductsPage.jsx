@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { motion } from "framer-motion";
-import Navbar from "../header/NavBar";
+import Navbar from "../header/Navbar";
 import Footer from "../Footer/Footer";
 
 const slides = [

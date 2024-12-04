@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography, Container, Button, Grid, Card, CardMedia, CardContent } from "@mui/material";
 import { styled } from "@mui/system";
 import { motion } from "framer-motion";
-import Navbar from "../header/NavBar";
+import Navbar from "../header/Navbar";
 import Footer from "../Footer/Footer";
 
 const styles = {
