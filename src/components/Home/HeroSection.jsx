@@ -9,6 +9,9 @@ const styles = {
     overflow: "hidden",
     height: "600px",
     width: "100vw",
+    "@media (max-width: 600px)": {
+      height: "400px", // Reduced height for mobile
+    },
   },
   slide: {
     position: "absolute",
@@ -32,12 +35,19 @@ const styles = {
     color: "#fff",
     textAlign: "center",
     px: 2,
+    "@media (max-width: 600px)": {
+      px: 1, // Reduced padding for mobile
+      textAlign: "center",
+    },
   },
   logoContainer: {
     mb: 3,
-    '& img': {
-      width: '150px',
-      height: 'auto',
+    "& img": {
+      width: "150px",
+      height: "auto",
+      "@media (max-width: 600px)": {
+        width: "120px", // Smaller logo on mobile
+      },
     },
   },
   heading: {
@@ -45,11 +55,18 @@ const styles = {
     mb: 2,
     textTransform: "uppercase",
     letterSpacing: 2,
+    "@media (max-width: 600px)": {
+      fontSize: "2rem", // Smaller font size for mobile
+    },
   },
   subtitle: {
     mb: 4,
     fontSize: "1.2rem",
     letterSpacing: 1,
+    "@media (max-width: 600px)": {
+      fontSize: "1rem", // Smaller font size for mobile
+      mb: 2, // Reduced margin for mobile
+    },
   },
   button: {
     backgroundColor: "#352b66",
@@ -58,6 +75,10 @@ const styles = {
     fontSize: "1rem",
     textTransform: "uppercase",
     "&:hover": { backgroundColor: "#392a85" },
+    "@media (max-width: 600px)": {
+      padding: "0.6rem 1.2rem", // Adjust padding for mobile
+      fontSize: "0.9rem", // Adjust font size for mobile
+    },
   },
 };
 

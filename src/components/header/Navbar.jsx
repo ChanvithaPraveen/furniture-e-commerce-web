@@ -1,5 +1,5 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Button, IconButton } from "@mui/material";
+import React, { useState } from "react";
+import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemText, useMediaQuery, useTheme } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
@@ -32,28 +32,60 @@ const styles = {
   cartLink: {
     textDecoration: "none",
   },
+  drawer: {
+    width: 250,
+    paddingTop: "2rem",
+  },
+  drawerList: {
+    padding: 0,
+  },
+  drawerItem: {
+    paddingLeft: "2rem",
+    paddingRight: "2rem",
+  },
 };
 
 const Navbar = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const toggleDrawer = (open) => {
+    setDrawerOpen(open);
+  };
+
   return (
     <AppBar sx={styles.appBar}>
       <Toolbar sx={styles.toolbar}>
-        <IconButton edge="start" color="inherit" aria-label="menu" sx={styles.menuButton}>
+        <IconButton edge="start" color="inherit" aria-label="menu" sx={styles.menuButton} onClick={() => toggleDrawer(true)}>
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" sx={styles.title}>
           Furniture Store
         </Typography>
-        {["Home", "Products", "AboutUs", "ContactUs", "Login", "Register"].map((text) => (
-          <Button
-            key={text}
-            sx={styles.button}
-            component={Link}
-            to={`/${text.toLowerCase()}`}
-          >
-            {text}
-          </Button>
-        ))}
+
+        {/* Drawer for mobile */}
+        <Drawer anchor="left" open={drawerOpen} onClose={() => toggleDrawer(false)}>
+          <List sx={styles.drawer} onClick={() => toggleDrawer(false)}>
+            {["Home", "Products", "AboutUs", "ContactUs", "Login", "Register"].map((text) => (
+              <ListItem button key={text} sx={styles.drawerItem} component={Link} to={`/${text.toLowerCase()}`}>
+                <ListItemText primary={text} />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+
+        {/* Desktop Menu Buttons */}
+        {!isMobile && (
+          <div>
+            {["Home", "Products", "AboutUs", "ContactUs", "Login", "Register"].map((text) => (
+              <Button key={text} sx={styles.button} component={Link} to={`/${text.toLowerCase()}`}>
+                {text}
+              </Button>
+            ))}
+          </div>
+        )}
+
         <Link to="/cart" style={styles.cartLink}>
           <IconButton color="inherit" aria-label="cart">
             <ShoppingCartIcon />

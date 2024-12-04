@@ -95,6 +95,37 @@ const styles = {
   },
 };
 
+// Mobile responsiveness updates
+const useStyles = (theme) => ({
+  ...styles,
+  [theme.breakpoints.down("sm")]: {
+    heroText: {
+      fontSize: "2rem", // smaller text on mobile
+    },
+    titleText: {
+      fontSize: "1.5rem", // smaller font for the title
+      marginLeft: "20px",
+      padding: "20px",
+    },
+    bodyText: {
+      fontSize: "1rem", // smaller font for body text
+    },
+    missionVisionTitle: {
+      fontSize: "1.3rem",
+    },
+    card: {
+      margin: "10px 0", // spacing for cards on mobile
+    },
+    callToActionBox: {
+      padding: "40px 0", // less padding on mobile
+    },
+    styledButton: {
+      padding: "0.8rem 2rem", // smaller button size
+      fontSize: "1rem",
+    },
+  },
+});
+
 const AboutUs = () => {
   return (
     <Box>

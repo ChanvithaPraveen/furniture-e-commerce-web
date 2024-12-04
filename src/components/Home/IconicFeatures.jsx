@@ -33,20 +33,20 @@ const IconicFeatures = () => {
   return (
     <Box sx={{ backgroundColor: "#f9fafb", py: 6 }}>
       <Container>
-        <Grid container spacing={12} justifyContent="normal">
+        <Grid container spacing={4} justifyContent="center">
           {features.map((feature, index) => (
-            <Grid item xs={12} sm={3} key={index}>
+            <Grid item xs={12} sm={6} md={3} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                viewport={{ once: true }} 
+                viewport={{ once: true }}
               >
                 {feature.icon}
-                <Typography variant="h6" sx={{ mt: 2, color: "#0f172a" }}>
+                <Typography variant="h6" sx={{ mt: 2, color: "#0f172a", fontSize: { xs: "1.25rem", sm: "1.5rem" } }}>
                   {feature.title}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "#4b5563" }}>
+                <Typography variant="body2" sx={{ color: "#4b5563", fontSize: { xs: "0.875rem", sm: "1rem" } }}>
                   {feature.description}
                 </Typography>
               </motion.div>
