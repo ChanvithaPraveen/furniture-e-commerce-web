@@ -8,11 +8,11 @@ const styles = {
   appBar: {
     backgroundColor: "#f9fafb",
     color: "#0f172a",
-    boxShadow: "none",
     position: "fixed",
     width: "100%",
     top: 0,
     zIndex: 9999,
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
   },
   toolbar: {
     display: "flex",
