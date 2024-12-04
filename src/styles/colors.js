@@ -1,5 +1,5 @@
 const Colors = {
-    skyBlue: "#87CEEB", // Replace with your preferred sky blue color
+    skyBlue: "#87CEEB", 
     white: "#FFFFFF",
   };
   

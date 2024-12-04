@@ -18,10 +18,22 @@ const CustomerReviews = () => {
       rating: 4,
       review: "Great service and product!",
     },
+    {
+        image: "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_960_720.png",
+        name: "John Doe",
+        rating: 5,
+        review: "Amazing quality! Loved it.",
+      },
+      {
+        image: "https://cdn.pixabay.com/photo/2024/02/28/15/47/call-8602325_1280.png",
+        name: "Jane Smith",
+        rating: 4,
+        review: "Great service and product!",
+      },
   ];
 
-  // Duplicate the feedbacks array for infinite scrolling
-  const extendedFeedbacks = [...feedbacks, ...feedbacks];
+
+  const extendedFeedbacks = [...feedbacks];
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -30,14 +42,13 @@ const CustomerReviews = () => {
       if (carousel) {
         carousel.scrollBy({ left: 300, behavior: "smooth" });
 
-        // Reset position when reaching the end
         if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
           carousel.scrollLeft = 0;
         }
       }
-    }, 2000); // Adjust speed here (2 seconds)
+    }, 3000); 
 
-    return () => clearInterval(scrollInterval); // Cleanup on component unmount
+    return () => clearInterval(scrollInterval); 
   }, []);
 
   return (
@@ -47,7 +58,7 @@ const CustomerReviews = () => {
         py: 6,
         px: 4,
         textAlign: "center",
-        overflow: "hidden", // Prevent manual scrolling
+        overflow: "hidden", 
       }}
     >
       <Typography
@@ -60,7 +71,7 @@ const CustomerReviews = () => {
         ref={carouselRef}
         sx={{
           display: "flex",
-          overflowX: "hidden", // Prevent horizontal scrollbar
+          overflowX: "hidden", 
           justifyContent: "center",
         }}
       >
@@ -69,8 +80,8 @@ const CustomerReviews = () => {
             key={index}
             sx={{
               flexShrink: 0,
-              width: "300px", // Adjust card size
-              mx: 2, // Space between cards
+              width: "300px", 
+              mx: 2, 
             }}
           >
             <FeedbackCard feedback={feedback} />

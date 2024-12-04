@@ -4,6 +4,7 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import { motion } from "framer-motion";
 
 const IconicFeatures = () => {
   const features = [
@@ -35,13 +36,20 @@ const IconicFeatures = () => {
         <Grid container spacing={12} justifyContent="normal">
           {features.map((feature, index) => (
             <Grid item xs={12} sm={3} key={index}>
-              {feature.icon}
-              <Typography variant="h6" sx={{ mt: 2, color: "#0f172a" }}>
-                {feature.title}
-              </Typography>
-              <Typography variant="body2" sx={{ color: "#4b5563" }}>
-                {feature.description}
-              </Typography>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }} 
+              >
+                {feature.icon}
+                <Typography variant="h6" sx={{ mt: 2, color: "#0f172a" }}>
+                  {feature.title}
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#4b5563" }}>
+                  {feature.description}
+                </Typography>
+              </motion.div>
             </Grid>
           ))}
         </Grid>
